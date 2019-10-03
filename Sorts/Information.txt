@@ -1,0 +1,27 @@
+Bubble Sort => Perfect; +++
+Selection Sort => Perfect +++
+Recursive Bubble Sort => Normal +++
+Insertion Sort => Normal  +++;
+Recursive Insertion Sort => Perfect +++
+Merge Sort => (HALF it is so diffucult) (Again 2)
+Iterative Merge Sort (Again)
+Quick Sort => Fail (Again)
+Iterative Quick Sort
+Heap Sort => Perfect
+Counting Sort => Perfect +++
+Radix Sort => Very Good +++
+Bucket Sort => Perfect +++
+ShellSort => Perfect +++
+TimSort => Not Found
+Comb Sort => Perfect Perfect +++
+Pigeonhole Sort => Perfect Like ++
+Cycle Sort => Not found
+Cocktail Sort => Perfect +++ (Second Try)
+Strand Sort => Good +++
+
+Learn Data Structure
+###SOURCE###
+https://www.geeksforgeeks.org/sorting-algorithms/
+
+
+Merge Sort 4 Erli
