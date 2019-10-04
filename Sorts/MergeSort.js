@@ -1,77 +1,69 @@
-function MergeSort(arr, n){
-    
+function MergeSort(arr){
+    //Divisions
+    //Conqueror
+    //Merge (Mercy)
     let temp = 0;
-    if(arr.length == n){
-        return arr;
-    }
 
-    if(n == 1){
-        for(let i = 0; i < arr.length; i = i + 2){
-            if(arr[i] > arr[i + 1]){
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-            }
-        }
 
-        return MergeSort(arr, 2);
-    }
-
-    for(let i = 0; i < arr.length; i = i + n * 2){
-        if(i + n > arr.length){
-            for(let j = 0; j < arr.length; j++){
-                //Nothing                
-            }
-        }else{
-
-            arr = Left(arr, i, n);
+    for(let i = 0; i < arr.length; i += 2){
+        if(arr[i + 1] < arr[i] ){
+            temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
         }
     }
 
-    n = n * 2;
-    
-    return MergeSort(arr, n);
-}
+    let Divisions = 2;
 
-function Left(arr, i, n){
-    let temp = 0;
-    let Index = i;
-    let Much = i + n - 1;
-    
-    console.log(arr);
-    while(Index < Much){
-        for(let j = i + n; j < i + n * 2; j++){
-            console.log(arr[j]);
-            console.log(arr[Index]);
-            console.log("\n");
-            if(arr[Index] > arr[j]){
-                temp = arr[Index];
-                arr[Index] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        Index = Index + 1;
-        //Son Sayı Fethi İçin
-    }
-    
-    for(let j = i + n * 2 - 1 ; j >= i + n;j--){
-        console.log("In");
-        if(arr[Index] > arr[j]){
+    while(Divisions < arr.length )
+    {
+        for(let i = 0; i < arr.length; i += Divisions * 2){
             
-            temp = arr[Index];
-            arr[Index] = arr[j];
-            arr[j] = temp;
-        }
-    }
-    
-    return arr;
-}
+            for(let j = 0; j < Divisions; j++){
+                if(arr[i] > arr[j + i + Divisions]){
+                    temp = arr[i];
+                    arr[i] = arr[j + i + Divisions];
+                    arr[j + i + Divisions] = temp;
+                }
+            }
 
+            for(let k = 1; k < Divisions; k++){
+                    
+                for(let j = Divisions - 1; j >= 0; j--){
+                    if(arr[i + k] > arr[Divisions + i + j] ){
+                        temp = arr[i + k];
+                        arr[i + k] = arr[Divisions + i + j];
+                        arr[Divisions + i + j] = temp;
+                    }
+                }
+            }
+
+            //Son Bolme
+            if(i + Divisions * 2 > arr.length ){
+                console.log("In");
+                for(let k = i; k < arr.length; k++){
+                    for(let m = i; m < arr.length; m++){
+                        if(arr[i] > arr[m]){
+                            temp = arr[i];
+                            arr[i] = arr[m];
+                            arr[m] = temp;
+                        }
+                    }
+                }
+            }
+            
+        }
+        Divisions = Divisions * 2;
+        console.log(arr);
+    }
+    return arr;
+    
+}
 
 
 let myarray = () => {
     let arr = [];
-    for(let i = 0; i < 16; i++ ){
+    for(let i = 0; i < 10; i++ ){
         arr.push(Math.floor((Math.random()* 100) + 1) );
     }
 
