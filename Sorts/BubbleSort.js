@@ -1,30 +1,19 @@
-function sort(arr){
-    let temp = 0;
+function bubbleSort(arr, n = 0, len) {
+    let temp;
+    if(len == 0)
+        return arr; 
 
-    for(let i = 0; i < arr.length; i++){
-        for(let j = i + 1; j < arr.length; j++){
-            if(arr[i] > arr[j]){
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
+
+    if(n < len){
+        if(arr[n] < arr[n - 1]){
+            temp = arr[n];
+            arr[n] = arr[n - 1];
+            arr[n - 1] = temp;
         }
+        
+        return bubbleSort(arr, n + 1, len);
+    }else{
+        len -= 1;
+        return bubbleSort(arr, 0, len);
     }
-
-    return arr;
 }
-
-
-let myarraya = [5,3,8,6,4,2,6,1,9,10];
-
-
-let myarray = () => {
-    let arr = [];
-    for(let i = 0; i < 10; i++ ){
-        arr.push(Math.floor((Math.random()* 100) + 1) );
-    }
-
-    return arr;
-} 
-
-console.log(sort(myarray()));
